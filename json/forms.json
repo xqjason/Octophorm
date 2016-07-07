@@ -24,123 +24,13 @@
     ],
     "collected" : [ ],
     "fields" : [
-            {
-                    "name" : "Jigsaw",
-                    "label" : "Data.com Key",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "1",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "FirstName",
-                    "label" : "First Name",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "2",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "Name",
-                    "label" : "Full Name",
-                    "nillable" : false,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "3",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "xiefeiyork001__Languages__c",
-                    "label" : "Languages",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "4",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "LastName",
-                    "label" : "Last Name",
-                    "nillable" : false,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "5",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "JigsawContactId",
-                    "label" : "Jigsaw Contact ID",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "6",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "Department",
-                    "label" : "Department",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "7",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "OtherState",
-                    "label" : "Other State/Province",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "8",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            },
-            {
-                    "name" : "xiefeiyork001__Contact_External_ID__c",
-                    "label" : "Contact External ID",
-                    "nillable" : true,
-                    "defaultValue" : "",
-                    "precision" : 0,
-                    "scale" : "0",
-                    "type" : "string",
-                    "hidden" : false,
-                    "orderno" : "9",
-                    "obsolete" : false,
-                    "picklistValues" : [ ]
-            }
+        {"name":"FirstName","label":"First Name","nillable":true,"defaultValue":"","precision":0,"scale":"0","type":"string","hidden":false,"orderno":"1","_id":"570d87e0aa77f11100705413","obsolete":false,"picklistValues":[]},
+{"name":"LastName","label":"Last Name","nillable":false,"defaultValue":"","precision":0,"scale":"0","type":"string","hidden":false,"orderno":"2","_id":"570d87e0aa77f11100705412","obsolete":false,"picklistValues":[]},
+
+{"name":"Company","label":"Company","nillable":false,"defaultValue":"","precision":0,"scale":"0","type":"string","hidden":false,"orderno":"3","_id":"570d87e0aa77f11100705411","obsolete":false,"picklistValues":[]},
+
+{"name":"City","label":"City","nillable":true,"defaultValue":"","precision":0,"scale":"0","type":"string","hidden":false,"orderno":"4","_id":"570d87e0aa77f11100705410","obsolete":false,"picklistValues":[]}
+
     ],
     "__v" : 0
   }

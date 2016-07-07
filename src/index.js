@@ -44,7 +44,6 @@ var FieldWrapper = React.createClass({
   }
 });
 
-
 var SectionWrapper = React.createClass({
   render: function() {
     var errors  = (this.props.errors || []).join('\n');
@@ -114,29 +113,6 @@ var RecordItem = React.createClass({
         );
     }
 });
-
-
-/*
-var RecordList = React.createClass({
-    propTypes: {
-        data: React.PropTypes.array.isRequired
-    },
-    render: function () {
-        var Records = this.props.data.map(function (record){
-            return <Form buttons={['Submit', 'Cancel']}
-                    schema={record}
-                    fieldWrapper={FieldWrapper}
-                    sectionWrapper={SectionWrapper} 
-                    />
-        });
-        return (
-            <ul className="table-view">
-                {Records}
-            </ul>
-        );
-    }
-});
-*/
 
 var HomePage = React.createClass({
     loadConversationsFromServer: function() {
