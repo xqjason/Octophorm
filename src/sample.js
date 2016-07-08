@@ -1,76 +1,6 @@
 var ReactDOM = require('react-dom');
 var React = require('react');
-var Form  = require('../lib/form');
-
-var SchemaEditor = React.createClass({
-  displayName: 'SchemaEditor',
-
-  preventSubmit: function(event) {
-    event.preventDefault();
-  },
-  render: function() {
-    return (
-      <form onSubmit={this.preventSubmit}>
-        <textarea rows="30" cols="60" onChange={this.props.onChange} value={this.props.value}></textarea>
-      </form>
-    );
-  }
-});
-
-
-var FieldWrapper = React.createClass({
-  render: function() {
-    var errors  = (this.props.errors || []).join('\n');
-    var classes = [].concat(errors ? 'error' : [],
-                            'form-element',
-                            this.props.classes || []);
-    var helpClasses  =
-      'form-help' + (this.props.description ? '' : ' invisible');
-    var errorClasses =
-      'form-error' + (errors ? '' : ' invisible');
-
-    return (
-        <div className={classes.join(' ')} key={this.props.label}>
-          <label htmlFor={this.props.label}>
-            {this.props.schema.label}
-          </label>
-          <span className={helpClasses} title={this.props.description}>
-          </span>
-          {this.props.children}
-          <span className={errorClasses} title={errors}>
-          </span>
-        </div>
-    );
-  }
-});
-
-var SectionWrapper = React.createClass({
-  render: function() {
-    var errors  = (this.props.errors || []).join('\n');
-    var level = this.props.path.length;
-    var classes = [].concat(errors ? 'error' : [],
-                            'form-section',
-                            (level > 0 ? 'form-subsection' : []),
-                            this.props.classes || []);
-    var helpClasses  =
-      'form-help' + (this.props.description ? '' : ' hidden');
-    var errorClasses =
-      'form-error' + (errors ? '' : ' hidden');
-
-    return (
-        <fieldset className={classes.join(' ')} key={this.props.label}>
-          <legend className="form-section-title">
-            {this.props.title}
-            <span className={helpClasses} title={this.props.description}>
-            </span>
-            <span className={errorClasses} title={errors}>
-            </span>
-          </legend>
-          {this.props.children}
-        </fieldset>
-    );
-  }
-});
+var SmartForm = require('../lib/SmartForm/SmartForm')
 
 var Header = React.createClass({
     render: function () {
@@ -90,7 +20,7 @@ var RecordList = React.createClass({
     },
     render: function () {
         var Records = this.props.data.map(function (record){
-            return <RecordItem key={record.key} recorditem = {record} />
+            return <RecordItem key={record._id} recorditem = {record} />
         });
         return (
             <ul className="table-view">
@@ -101,14 +31,16 @@ var RecordList = React.createClass({
 });
 
 var RecordItem = React.createClass({
+    handleOnClick: function(data){
+      console.log(data);
+    },
     render: function () {
         return (
             <li className="table-view-cell media">
-               <Form buttons={['Submit', 'Cancel']}
-                    schema={this.props.recorditem}
-                    fieldWrapper={FieldWrapper}
-                    sectionWrapper={SectionWrapper} 
-                    />       
+                  <SmartForm 
+                    data={this.props.recorditem} 
+                    onClick={this.handleOnClick}
+                  />
             </li>
         );
     }
@@ -158,6 +90,6 @@ var HomePage = React.createClass({
 });
 
 ReactDOM.render(
-  <HomePage url="./json/forms.json" pollInterval={20000} />,
+  <HomePage url="./json/leadForm.json" pollInterval={20000} />,
   document.getElementById('app')
 );

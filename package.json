@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/bundle.js"
-    "build Sample": "browserify -t [ babelify --presets [ react ] ] src/sample.js -o build/sample.js"  
+    "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/bundle.js",
+    "build_sample": "browserify -t [ babelify --presets [ react ] ] src/sample.js -o build/sample.js"
   },
   "keywords": [
     "Octophorm"
@@ -17,6 +17,7 @@
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react-dom": "^0.14.8",
+    "react-select": "^1.0.0-beta13"
   }
 }
