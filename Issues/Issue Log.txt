@@ -1,0 +1,2 @@
+1. No 'Access-Control-Allow-Origin' header is present on the requested resource. 
+A: Chrome Plugin

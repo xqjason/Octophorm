@@ -1,6 +1,8 @@
 var ReactDOM = require('react-dom');
 var React = require('react');
-var SmartForm = require('../lib/SmartForm/SmartForm')
+var SmartForm = require('../lib/SmartForm/SmartForm');
+var SmartInput = require('../lib/SmartForm/SmartInput');
+
 
 var Header = React.createClass({
     render: function () {
@@ -13,7 +15,7 @@ var Header = React.createClass({
     }
 });
 
-
+/*
 var RecordList = React.createClass({
     propTypes: {
         data: React.PropTypes.array.isRequired
@@ -44,6 +46,24 @@ var RecordItem = React.createClass({
             </li>
         );
     }
+});
+*/
+
+var SmartFormPage = React.createClass({
+  handleOnClick: function(data){
+    console.log(data);
+  },
+  render: function(){
+    /* return <SmartForm data = {this.props.data} onClick = {this.handleOnClick}/>*/
+    var Records = this.props.data.map(function (record){
+            return <SmartInput key = {record._id} recorditem = {record}/>
+        });
+        return (
+            <ul className="table-view">
+                {Records}
+            </ul>
+        );
+  }
 });
 
 var HomePage = React.createClass({
@@ -82,7 +102,7 @@ var HomePage = React.createClass({
             <div>
                 <Header text="Example Form" back="false"/>
                 <div className="content">
-                    <RecordList data={this.state.data} />
+                    <SmartFormPage data={this.state.data} />
                 </div>
             </div>
         );
@@ -90,6 +110,6 @@ var HomePage = React.createClass({
 });
 
 ReactDOM.render(
-  <HomePage url="./json/leadForm.json" pollInterval={20000} />,
+  <HomePage url="http://octo-dev.herokuapp.com/form/56e595003e2891110071c64b/FormFields" pollInterval={2000} />,
   document.getElementById('app')
 );

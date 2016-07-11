@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/bundle.js",
-    "build_sample": "browserify -t [ babelify --presets [ react ] ] src/sample.js -o build/sample.js"
+    "build_sample": "browserify -t [ babelify --presets [ react ] ] src/sample.js -o build/sample.js",
+    "build_login": "browserify -t [ babelify --presets [ react ] ] src/login.js -o build/login.js"
   },
   "keywords": [
     "Octophorm"
