@@ -1,6 +1,5 @@
 var ReactDOM = require('react-dom');
 var React = require('react');
-var $ = require('jquery');
 
 
 var ProductBox = React.createClass({
@@ -9,12 +8,18 @@ var ProductBox = React.createClass({
     return {text: '',data :1};
   },
   handleLoginSubmit: function (data) {
-    $.post('http://dev.herokuapp.com/session/login',data,function(data){
-      this.setState({text:"Login success!" });
-    }.bind(this)).error(function (data) {
-      console.log(data);
-      this.setState({text:"Password or username are incorrect!" });
-    }.bind(this));
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: data,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },    
   render: function () {
     return(
@@ -63,6 +68,6 @@ var LoginForm = React.createClass({
 });
 
 ReactDOM.render(
-  <ProductBox />,
+  <ProductBox url="http://octo-dev.herokuapp.com/session/login" />,
   document.getElementById('app')
 );
