@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  	context: __dirname,  
+  	devtool: 'inline-source-map',  
   	entry: {
     	javascript : './main.js'
   	},
@@ -18,7 +18,7 @@ module.exports = {
 	        loader: 'babel-loader',
 	        exclude: /node_modules/,
 	        query: {
-	          presets: ['es2015', 'react']
+	          presets: ["es2015", "react", "stage-0"]
 	        }
 	      }
 	    ]
