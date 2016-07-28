@@ -4,3 +4,5 @@ A: Chrome Plugin
 4. https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html
 5. Login success, auth failed, can't pass to server cookie with sid
 6. To replace frame with stateless function component
+7. Stage-0 and transform-class-properties resolve context problem.
+8. JWT saved in the client browser cookie

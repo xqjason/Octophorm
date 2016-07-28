@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Header from './frame/header.jsx';
 
 class LoginPanel extends React.Component {
   static contextTypes = {
@@ -6,9 +7,6 @@ class LoginPanel extends React.Component {
   }
   constructor(props) {
     super(props);
-    this.state = {
-        text: ''
-    };
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
   }
   handleLoginSubmit(data) {
@@ -18,9 +16,12 @@ class LoginPanel extends React.Component {
       type: 'POST',
       data: data,
       success: function(data) {
-        /*this.setState({data: data, text: "True"});*/
-        console.log("success");
-        const path = '/hello';
+        console.log(data);
+
+        document.cookie = "token=" + data.token + "; username=" + data.username;
+        
+
+        const path = '/';
         this.context.router.push(path);
 
       }.bind(this),
@@ -34,11 +35,11 @@ class LoginPanel extends React.Component {
   render() {
 
     console.log("Render LoginPanel Start");
-    console.log(this.state);
 
     return(
       <div>
-        <LoginForm onLoginSubmit={this.handleLoginSubmit} />
+        <Header text="Please Login first"/>        
+        <LoginForm onLoginSubmit={this.handleLoginSubmit} />        
       </div>
     );
   }
@@ -61,19 +62,18 @@ class LoginForm extends React.Component {
       return;
     }
     this.props.onLoginSubmit({email:email,password:password});
-    this.refs.email.value = '';
-    this.refs.password.value = '';
   }
   render() {
 
     console.log("Render LoginForm Start");
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="email" placeholder="Your username" ref="email"/>
-        <input type="password" placeholder="Your password" ref="password"/>
-        <input className="btn btn-positive btn-block" type="submit" value="Login"/>
-      </form>
+        <form onSubmit={this.handleSubmit} className="content">
+          <input type="email" placeholder="Your username" ref="email"/>
+          <input type="password" placeholder="Your password" ref="password"/>
+          <input className="btn btn-positive btn-block" type="submit" value="Login"/>
+        </form>
+      
     )
   }
 };
