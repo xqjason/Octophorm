@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
     };
     render() {
         return (
-            <div className="bar bar-standard bar-header-secondary">
+            <div className={"bar bar-standard bar-header-secondary" + (this.props.hidden==="true"?" hidden":"")}>
                 <input type="search" ref="searchKey" onChange={this.handleChange} value={this.props.searchKey}/>
             </div>
         );

@@ -7,6 +7,7 @@ class LoginPanel extends React.Component {
   }
   constructor(props) {
     super(props);
+    this.state = { text: "" };
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
   }
   handleLoginSubmit(data) {
@@ -16,19 +17,15 @@ class LoginPanel extends React.Component {
       type: 'POST',
       data: data,
       success: function(data) {
-        console.log(data);
-
         document.cookie = "token=" + data.token + "; username=" + data.username;
-        
-
         const path = '/';
         this.context.router.push(path);
-
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
-        const path = '/world';
-        this.context.router.push(path);
+        /*const path = '/world';
+        this.context.router.push(path);*/
+        this.setState({text:"Your username or password not correct. Please try again"});
       }.bind(this)
     });
   }
@@ -39,7 +36,7 @@ class LoginPanel extends React.Component {
     return(
       <div>
         <Header text="Please Login first"/>        
-        <LoginForm onLoginSubmit={this.handleLoginSubmit} />        
+        <LoginForm onLoginSubmit={this.handleLoginSubmit} text={this.state.text} />        
       </div>
     );
   }
@@ -48,6 +45,7 @@ class LoginPanel extends React.Component {
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { text: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {
@@ -66,14 +64,17 @@ class LoginForm extends React.Component {
   render() {
 
     console.log("Render LoginForm Start");
+    
+
+    var warning = (this.props.text == ""? this.state.text: this.props.text);    
 
     return (
         <form onSubmit={this.handleSubmit} className="content">
           <input type="email" placeholder="Your username" ref="email"/>
           <input type="password" placeholder="Your password" ref="password"/>
           <input className="btn btn-positive btn-block" type="submit" value="Login"/>
+          <font color="red">{warning}</font>
         </form>
-      
     )
   }
 };
