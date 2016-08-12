@@ -22,5 +22,14 @@ module.exports = {
 	        }
 	      }
 	    ]
-  	}
+  	},
+	resolve: {
+	    extensions: ['', '.js', '.jsx', '.less'],
+	    modulesDirectories: [
+	      'node_modules'
+	    ]
+  	},
+  	resolveLoader: {
+    	root: path.resolve(__dirname, 'node_modules')
+  	}
 };
