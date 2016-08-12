@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p --config webpack.config.js --progress --colors",
+    "build": "webpack -p --config webpack.config.js --progress --colors --display-error-details",
     "start_dev" : "webpack-dev-server --progress --colors",
     "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
     "postinstall": "npm run build"
