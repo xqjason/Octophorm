@@ -12,7 +12,7 @@
     "build": "webpack -p --config webpack.config.js --progress --colors --display-error-details",
     "start_dev" : "webpack-dev-server --progress --colors",
     "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
-    "start": "npm start",
+    "start": "node server.js",
     "postinstall": "npm run build"
   },
   "keywords": [
@@ -24,7 +24,13 @@
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-router": "^2.6.0",
-    "react-select": "^1.0.0-beta13"
+    "react-select": "^1.0.0-beta13",
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "express-session": ">= 0.0.1",
+    "jsforce": "~x.x",
+    "jsonwebtoken": "^7.1.6",
+    "react-cookie": "^0.4.7"
   },
   "devDependencies": {    
     "babel-core": "^6.11.4",
