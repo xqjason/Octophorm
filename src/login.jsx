@@ -12,7 +12,7 @@ class LoginPanel extends React.Component {
   }
   handleLoginSubmit(data) {
     $.ajax({
-      url: "http://jsx-dev-react.herokuapp.com/session/login",
+      url: "/session/login",
       dataType: 'json',
       type: 'POST',
       data: data,

@@ -16,7 +16,7 @@ class FormPanel extends React.Component {
     var path = '/login';
     console.log(token);
     $.ajax({
-      url: "http://jsx-dev-react.herokuapp.com/form/FormFields",
+      url: "/form/FormFields",
       dataType: 'json',
       cache: false,
       Type: 'GET',

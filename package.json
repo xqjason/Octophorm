@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "Integrate with Octophorm Form Builder & WeChat",
   "main": "index.js",
-  "engines": {
-    "node": ">=4.2.0",
-    "npm": "^3.0.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p --config webpack.config.js --progress --colors --display-error-details",
