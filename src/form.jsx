@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './frame/header.jsx';
 import SmartInput from '../lib/fields/SmartInput.js';
+import SmartCheckbox from '../lib/fields/SmartCheckbox.js';
 
 class FormPanel extends React.Component {
   static contextTypes = {
@@ -13,6 +14,7 @@ class FormPanel extends React.Component {
   loadFieldsFromServer() {
     var token = get_cookie("token");
     var path = '/login';
+    console.log(token);
     $.ajax({
       url: "http://jsx-dev-react.herokuapp.com/form/FormFields",
       dataType: 'json',
@@ -67,6 +69,8 @@ class FieldItem extends React.Component{
   render() {
     if(this.props.fieldItem.type==='string'){
       return <SmartInput label={this.props.fieldItem.label} type={this.props.fieldItem.type}/>
+    }else if(this.props.fieldItem.type==='boolean'){
+      return <SmartCheckbox label={this.props.fieldItem.label}/>
     }else{
       return (
         <div>
