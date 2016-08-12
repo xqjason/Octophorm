@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config ./webpack.config.js --progress --colors",
+    "build": "webpack -p --config webpack.config.js --progress --colors",
+    "start_dev" : "webpack-dev-server --progress --colors",
     "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
-    "postinstall": "npm run FIXFIX"
+    "postinstall": "npm run build"
   },
   "keywords": [
     "Octophorm"
@@ -18,7 +19,8 @@
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-router": "^2.6.0",
-    "react-select": "^1.0.0-beta13"
+    "react-select": "^1.0.0-beta13",
+    "webpack": "^1.13.1"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",
@@ -27,7 +29,6 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.0.15",
     "babel-plugin-react-transform": "^2.0.0",
-    "babel-plugin-transform-class-properties": "^6.5.2",
-    "webpack": "^1.13.1"
+    "babel-plugin-transform-class-properties": "^6.5.2"
   }
 }
