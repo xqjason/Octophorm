@@ -48,6 +48,10 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+
 app.get('/form/FormFields', Auth, function(req, res) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
